@@ -1,9 +1,17 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 import { NestFactory } from "@nestjs/core";
 import { ValidationPipe } from "@nestjs/common";
 import { AppModule } from "./app/app.module";
+import cookieSession from "cookie-session";
+const cookSession = require("cookie-session");
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+  app.use(
+    cookieSession({
+      keys: ["57fh47fh"],
+    })
+  );
   app.useGlobalPipes(
     new ValidationPipe({
       whitelist: true,

@@ -3,6 +3,11 @@ import { Repository } from "typeorm";
 import { InjectRepository } from "@nestjs/typeorm";
 import { User } from "./user.entity";
 
+type FindQuery = {
+  id?: number;
+  email?: string;
+};
+
 @Injectable()
 export class UsersService {
   constructor(@InjectRepository(User) private repository: Repository<User>) {}
@@ -12,8 +17,8 @@ export class UsersService {
     return this.repository.save(user);
   }
 
-  find(id: number) {
-    return this.repository.find({ where: { id } });
+  find(query: FindQuery) {
+    return this.repository.find({ where: { ...query } });
   }
 
   async update(id: number, attrs: Partial<User>) {
