@@ -18,7 +18,9 @@ export class UsersService {
   }
 
   find(query: FindQuery) {
-    return this.repository.find({ where: { ...query } });
+    return this.repository.find({
+      where: { ...query },
+    });
   }
 
   async update(id: number, attrs: Partial<User>) {

@@ -17,7 +17,7 @@ export async function decrypt(password: string): Promise<string> {
     return hash.toString("hex");
 }
 
-export async function verifyPassword(userPassword, password: string): Promise<boolean> {
+export async function verifyPassword(userPassword: string, password: string): Promise<boolean> {
     const [storedHash] = password.split("."); 
     const hash = await decrypt(userPassword);
     return hash === storedHash;

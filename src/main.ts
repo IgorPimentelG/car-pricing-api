@@ -2,8 +2,7 @@
 import { NestFactory } from "@nestjs/core";
 import { ValidationPipe } from "@nestjs/common";
 import { AppModule } from "./app/app.module";
-import cookieSession from "cookie-session";
-const cookSession = require("cookie-session");
+const cookieSession = require("cookie-session");
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);

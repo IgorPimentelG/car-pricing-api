@@ -3,9 +3,6 @@ import { BadRequestException, NotFoundException, Injectable } from "@nestjs/comm
 import { encrypt, verifyPassword } from "../util/encrypt";
 import { UsersService } from "./users.service";
 
-
-
-
 @Injectable()
 export class AuthService {
     constructor(private usersService: UsersService) {}
