@@ -45,7 +45,7 @@ export class UsersController {
     @Body() body: CreateUserDTO,
     @Session() session: UserSession
   ) {
-    const user = await this.authService.singup(body.email, body.password);
+    const user = await this.authService.signup(body.email, body.password);
     session.userId = user.id;
     return user;
   }

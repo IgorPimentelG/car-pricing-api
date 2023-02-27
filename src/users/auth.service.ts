@@ -7,7 +7,7 @@ import { UsersService } from "./users.service";
 export class AuthService {
     constructor(private usersService: UsersService) {}
 
-    async singup(email: string, password: string) {
+    async signup(email: string, password: string) {
         const isExist = await this.usersService.find({ email });
         if (isExist.length) {
             throw new BadRequestException('Email in use');
